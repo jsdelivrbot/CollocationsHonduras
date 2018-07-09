@@ -1,3 +1,91 @@
-<p>
-  contacts works!
-</p>
+<div class="main-content">
+  <div class="container-fluid">
+
+
+    <div class="row crx-row-buttons">
+      <div class="col-md-4">
+        <button mat-button class="crx-button-primary" (click)="nuevo()">
+          <i class="material-icons crx-button-primary">playlist_add</i>
+        </button>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header card-header-icon" data-background-color="crx">
+          <i class="material-icons">people</i>
+        </div>
+
+        <div class="card-content">
+          <div class="content table-responsive">
+            <mat-table #table [dataSource]="dataSource">
+
+              <!-- Nombre Column -->
+              <ng-container matColumnDef="nombre">
+                <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.nombre}} </mat-cell>
+              </ng-container>
+
+              <!-- Telefono Column -->
+              <ng-container matColumnDef="telefono">
+                <mat-header-cell *matHeaderCellDef> Telefono </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.telefono}} </mat-cell>
+              </ng-container>
+
+              <!-- Celular Column -->
+              <ng-container matColumnDef="celular">
+                <mat-header-cell *matHeaderCellDef> Celular </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.celular}} </mat-cell>
+              </ng-container>
+
+              <!-- Email Column -->
+              <ng-container matColumnDef="email">
+                <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+              </ng-container>
+
+              <!-- Botones de Editar -->
+              <ng-container matColumnDef="editar">
+                <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                <mat-cell *matCellDef="let pro">
+                  <!-- Editar button -->
+                  <button mat-button color="accent" class="pull-right" (click)="editarContacto(pro.id)">
+                    <i class="material-icons">mode_edit</i>
+                  </button>
+                </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+            <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+            </mat-paginator>
+            <!-- <table class="table">
+              <thead class="text-primary">
+                <tr>
+                  <th>Nombre</th>
+                  <th>Telefono</th>
+                  <th>Celular</th>
+                  <th>Email</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let a of contactos">
+                  <td>{{a.nombre}}</td>
+                  <td>{{a.telefono_primario}}</td>
+                  <td>{{a.celular}}</td>
+                  <td>{{a.email_personal}}</td>
+                  <td>
+                    <button mat-button color="accent" class="pull-right" (click)="editarContacto(a.id)">
+                      <i class="material-icons">mode_edit</i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

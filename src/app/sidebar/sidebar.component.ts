@@ -27,6 +27,15 @@ export const ROUTES: RouteInfo[] = [{
     title: 'Dashboard',
     type: 'link',
     icontype: 'dashboard'
+}, {
+    path: '/crm',
+    title: 'CRM',
+    type: 'sub',
+    icontype: 'people',
+    collapse: 'crm',
+    children: [
+        { path: 'contactos', title: 'Contactos', ab: 'C' }
+    ]
 }
     // ,{
     //     path: '/components',
@@ -116,7 +125,10 @@ export const ROUTES: RouteInfo[] = [{
 })
 
 export class SidebarComponent implements OnInit {
+
     public menuItems: any[];
+
+    constructor(public _auxiliarService: ColocationService) { }
 
     isMobileMenu() {
         if ($(window).width() > 991) {
@@ -141,6 +153,4 @@ export class SidebarComponent implements OnInit {
         }
         return bool;
     }
-
-    constructor(public _auxiliarService: ColocationService) { }
 }

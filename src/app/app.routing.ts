@@ -16,6 +16,9 @@ export const AppRoutes: Routes = [
             {
                 path: '',
                 loadChildren: './dashboard/dashboard.module#DashboardModule'
+            },{
+                path: 'crm',
+                loadChildren: './System/crm/crm.module#CrmModule'
             }, {
                 path: 'components',
                 loadChildren: './components/components.module#ComponentsModule'

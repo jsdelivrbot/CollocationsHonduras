@@ -1,16 +1,16 @@
-<div class="logo" *ngIf="_auxiliarService.myLogin.company_name != ''">
+<div class="logo">
     <a class="simple-text logo-mini">
         <div class="logo-img">
             <img src="/assets/img/angular2-logo-white.png" />
         </div>
     </a>
-    <a href="https://www.creative-tim.com" class="simple-text logo-normal">
+    <a class="simple-text logo-normal">
         {{_auxiliarService.myLogin.company_name}}
     </a>
 </div>
 
 
-<div class="sidebar-wrapper" *ngIf="_auxiliarService.myLogin.company_name != ''">
+<div class="sidebar-wrapper">
 
     <div class="user">
         <div class="photo">
@@ -19,7 +19,7 @@
         <div class="user-info">
             <a data-toggle="collapse" href="#collapseExample" class="collapsed">
                 <span>
-                    Tania Andrew
+                    {{_auxiliarService.myLogin.name_user}}
                     <b class="caret"></b>
                 </span>
             </a>
@@ -92,7 +92,7 @@
             </li>
         </ul>
     </div>
-    <ul class="nav">
+    <ul class="nav" *ngIf="_auxiliarService.myLogin.company_name != ''">
         <li routerLinkActive="active" *ngFor="let menuitem of menuItems" class="nav-item">
             <!--If is a single link-->
             <a [routerLink]="[menuitem.path]" *ngIf="menuitem.type === 'link'" class="nav-link">
