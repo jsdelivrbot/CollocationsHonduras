@@ -19,12 +19,17 @@ export class ContactsComponent implements OnInit {
   contactos: Contact[];
 
   dataSource = new MatTableDataSource<Contact>();
+
   displayedColumns = ['ID', 'name', 'identidad', 'profesion', 'editar'];
 
   constructor(public _auxiliar: ColocationService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.getContacts();
+  }
+
+  message() {
+
   }
 
   getContacts() {
