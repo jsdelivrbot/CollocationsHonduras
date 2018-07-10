@@ -30,8 +30,9 @@ export class LoginComponent implements OnInit, OnDestroy {
             .subscribe(result => {
                 conectado = result.conectado;
 
-                if (conectado == 1) {
+                if (conectado == 1 && result.kind == 1 || conectado == 1 && localStorage.getItem('Aprobado') == 'SI') {
                     // Validacion exitosa
+                    localStorage.setItem('Aprobado', 'SI');
                     this._auxiliar.connected = true;
                     this._auxiliar.myLogin = result;
                     this._router.navigateByUrl('/dashboard');
