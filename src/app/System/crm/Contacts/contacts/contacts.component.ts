@@ -6,8 +6,7 @@ import { Contact } from '../../../../_models/Contact.model';
 
 @Component({
   selector: 'app-contacts',
-  templateUrl: './contacts.component.html',
-  styleUrls: ['./contacts.component.scss']
+  templateUrl: './contacts.component.html'
 })
 export class ContactsComponent implements OnInit {
 
