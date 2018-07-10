@@ -4,7 +4,7 @@
 
     <div class="row crx-row-buttons">
       <div class="col-md-4">
-        <button mat-button class="crx-button-primary" (click)="nuevo()">
+        <button mat-button class="crx-button-primary" (click)="newContact()">
           <i class="material-icons crx-button-primary">playlist_add</i>
         </button>
       </div>
@@ -21,27 +21,27 @@
             <mat-table #table [dataSource]="dataSource">
 
               <!-- Nombre Column -->
-              <ng-container matColumnDef="nombre">
-                <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.nombre}} </mat-cell>
+              <ng-container matColumnDef="ID">
+                <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.ID}} </mat-cell>
               </ng-container>
 
               <!-- Telefono Column -->
-              <ng-container matColumnDef="telefono">
-                <mat-header-cell *matHeaderCellDef> Telefono </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.telefono}} </mat-cell>
+              <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.firstName}} {{element.lastName}} </mat-cell>
               </ng-container>
 
               <!-- Celular Column -->
-              <ng-container matColumnDef="celular">
-                <mat-header-cell *matHeaderCellDef> Celular </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.celular}} </mat-cell>
+              <ng-container matColumnDef="identidad">
+                <mat-header-cell *matHeaderCellDef> Identidad </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.identity}} </mat-cell>
               </ng-container>
 
               <!-- Email Column -->
-              <ng-container matColumnDef="email">
-                <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+              <ng-container matColumnDef="profesion">
+                <mat-header-cell *matHeaderCellDef> Profesión </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.profession}} </mat-cell>
               </ng-container>
 
               <!-- Botones de Editar -->
@@ -49,7 +49,7 @@
                 <mat-header-cell *matHeaderCellDef></mat-header-cell>
                 <mat-cell *matCellDef="let pro">
                   <!-- Editar button -->
-                  <button mat-button color="accent" class="pull-right" (click)="editarContacto(pro.id)">
+                  <button mat-button color="accent" class="pull-right" (click)="editContact(pro.id)">
                     <i class="material-icons">mode_edit</i>
                   </button>
                 </mat-cell>
